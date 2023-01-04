@@ -1,0 +1,28 @@
+type HeroImages @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  images: String
+  catch: String
+}
+
+type Category @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+}
+
+type Author @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  thumb: String
+  email: String
+  address: String
+}
+
+type Content @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Author: Author @hasOne
+  Category: Category @hasOne
+  title: String
+  thumb: String
+  description: String
+  content: String
+} 
